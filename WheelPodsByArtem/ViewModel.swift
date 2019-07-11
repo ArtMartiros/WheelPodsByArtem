@@ -8,19 +8,19 @@
 
 import UIKit
 
-class ViewModel {
+public class ViewModel {
     
     private let model = Model()
     
     //MARK: Bindable properties
-    private (set) var countNumber = Box(0)
-    private (set) lazy var enableLoadingButton = Box(enableLoadingButtonRule)
-    private (set) lazy var enableCancelButton = Box(enableCancelButtonRule)
-    private (set) lazy var showLoadingIndicator = Box(isLoading)
-    private (set) var currentMainImage: Box<UIImage?> = Box(UIImage(imageLiteralResourceName: "placeholderImg"))
+    private (set) public var countNumber = Box(0)
+    private (set) public lazy var enableLoadingButton = Box(enableLoadingButtonRule)
+    private (set) public lazy var enableCancelButton = Box(enableCancelButtonRule)
+    private (set) public lazy var showLoadingIndicator = Box(isLoading)
+    private (set) public var currentMainImage: Box<UIImage?> = Box(UIImage(imageLiteralResourceName: "placeholderImg"))
     
     //MARK: Properties
-    private (set) var textInput = "https://my-hit.org/storage/952427_1920x1080x500.jpg" { didSet { updateButtonStatus()}}
+    private (set) public var textInput = "https://my-hit.org/storage/952427_1920x1080x500.jpg" { didSet { updateButtonStatus()}}
     private var loadedTextInputValue = "" { didSet { updateButtonStatus()}}
     private var isLoading = false {
         didSet {
@@ -50,12 +50,12 @@ class ViewModel {
     }
     
     //MARK: Implementation
-    func addCount() {
+    public func addCount() {
         countNumber.value += 1
         updateButtonStatus()
     }
     
-    func loadImage() {
+    public func loadImage() {
         let textInput = self.textInput
         if let url = URL(string: textInput) {
             isLoading = true
@@ -71,12 +71,12 @@ class ViewModel {
         }
     }
     
-    func cancelLoading() {
+    public func cancelLoading() {
         isLoading = false
         model.cancel()
     }
     
-    func updateTextInput( _ text: String?) {
+    public func updateTextInput( _ text: String?) {
         textInput = text ?? ""
     }
     
