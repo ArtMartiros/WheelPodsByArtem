@@ -6,7 +6,7 @@
 #  To see working Podspecs in the CocoaPods repo see https://github.com/CocoaPods/Specs/
 #
 
-Pod::Spec.new do |spec|
+Pod::Spec.new do |s|
 
 s.platform = :ios
 s.ios.deployment_target = '12.0'
@@ -23,6 +23,6 @@ s.source = { :git => "https://github.com/ArtMartiros/WheelPodsByArtem.git",
              :tag => "#{s.version}" }
 s.framework = "UIKit"
 s.source_files = "WheelPodsByArtem/*.{swift}"
-s.resources = "RWPickFlavor/*.{png,jpeg,jpg,storyboard,xib,xcassets}"
+s.resources = "WheelPodsByArtem/*.{png,jpeg,jpg,storyboard,xib,xcassets}"
 s.swift_version = "4.2"
 end
